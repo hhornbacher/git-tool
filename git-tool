@@ -10,7 +10,6 @@ const {
     _
 } = program.lib;
 
-// defineProgram(({ program, config, shell, api, ui: { print, columns }, _ }) => {
 const token = config.get('token');
 
 const gitlab = api('git.h4h0.de', {
@@ -68,4 +67,3 @@ program
     });
 
 program.run();
-// });
