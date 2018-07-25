@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+
+const program = require('@cli-tools/cli');
+const shell = require('shelljs');
+
+const {
+    api,
+    config,
+    ui: { print, columns },
+    _
+} = program.lib;
+
+// defineProgram(({ program, config, shell, api, ui: { print, columns }, _ }) => {
+const token = config.get('token');
+
+const gitlab = api('git.h4h0.de', {
+    'Private-Token': token
+});
+
+program
+    .check(() => {
+        if (!token) throw new Error('You have to put your API token into config.json!');
+        return true;
+    }, true)
+    .command('create <name>', 'create new project and clone it', () => { }, ({ name }) => {
+        return gitlab.post('/api/v4/projects', { name })
+            .then((project) => process.exit(
+                shell.exec('git clone ' + project.ssh_url_to_repo + '')
+                    .code
+            ));
+    })
+    .command('rm <id>', 'delete project by id (or path)', () => { }, ({ id }) => {
+        return gitlab.delete('/api/v4/projects/' + encodeURIComponent(id))
+            .then(() => process.exit(0));
+    })
+    .command('ls', 'list all projects', () => { }, () => {
+        return gitlab.get('/api/v4/projects?per_page=1000')
+            .then((projects) => {
+                print('Listing projects:');
+                print(
+                    columns(
+                        projects.map(
+                            (project) => {
+                                return _.pick(project, ['id', 'path_with_namespace', 'description']);
+                            }
+                        ), {
+                            truncate: true,
+                            truncateMarker: '…',
+                            maxLineWidth: 'auto',
+                            config: {
+                                id: {
+                                    minWidth: 4,
+                                    showHeaders: false
+                                },
+                                path_with_namespace: {
+                                    minWidth: 40,
+                                    headingTransform: () => 'Path'
+                                },
+                                description: {
+                                    maxWidth: 60,
+                                    headingTransform: () => 'Description'
+                                }
+                            }
+                        }
+                    )
+                )
+            });
+    });
+
+program.run();
+// });

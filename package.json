@@ -1,0 +1,11 @@
+{
+  "name": "@cli-tools/git-tool",
+  "version": "1.0.0",
+  "author": "Harry Hornbacher",
+  "bin": "./git-tool",
+  "dependencies": {
+    "@cli-tools/cli": "^1.2.0",
+    "lodash": "^4.17.10",
+    "shelljs": "^0.8.2"
+  }
+}
