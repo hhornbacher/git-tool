@@ -46,7 +46,7 @@ cli.program
                     cli.ui.columns(
                         projects.map(
                             (project) => {
-                                return cli._.pick(project, ['id', 'path_with_namespace', 'description']);
+                                return cli._.pick(project, ['id', 'path', 'description']);
                             }
                         ), {
                             truncate: true,
