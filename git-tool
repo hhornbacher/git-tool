@@ -54,16 +54,16 @@ cli.program
                             maxLineWidth: 'auto',
                             config: {
                                 id: {
-                                    minWidth: 4,
-                                    showHeaders: false
+                                    minWidth: 36,
+                                    headingTransform: () => cli.ui.color.bold('ID')
                                 },
-                                path_with_namespace: {
+                                path: {
                                     minWidth: 40,
-                                    headingTransform: () => 'Path'
+                                    headingTransform: () => cli.ui.color.bold('Path')
                                 },
                                 description: {
                                     maxWidth: 60,
-                                    headingTransform: () => 'Description'
+                                    headingTransform: () => cli.ui.color.bold('Description')
                                 }
                             }
                         }
