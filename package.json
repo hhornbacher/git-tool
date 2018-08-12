@@ -1,6 +1,6 @@
 {
   "name": "@clitools/git-tool",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "Harry Hornbacher",
   "bin": "./git-tool",
   "license": "MIT",

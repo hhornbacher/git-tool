@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.1
+
+* Move to github
+* Add license
+* Add repo links to `package.json`
+
 ## 2.0.0
 
 * Implement API for github and bitbucket
