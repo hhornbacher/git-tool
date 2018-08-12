@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.0
+
+* Implement API for github and bitbucket
+* Update and port to `@clitools/base` v2.3.0
+
 ## 1.1.0
 
 * Change scope to @clitools
