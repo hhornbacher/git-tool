@@ -3,6 +3,15 @@
   "version": "2.0.0",
   "author": "Harry Hornbacher",
   "bin": "./git-tool",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hhornbacher/git-tool.git"
+  },
+  "homepage": "https://github.com/hhornbacher/git-tool#readme",
+  "bugs": {
+    "url": "https://github.com/hhornbacher/git-tool/issues"
+  },
   "dependencies": {
     "@clitools/base": "^2.3.0",
     "@clitools/keystore": "^2.1.0",
