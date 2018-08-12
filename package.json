@@ -4,8 +4,8 @@
   "author": "Harry Hornbacher",
   "bin": "./git-tool",
   "dependencies": {
-    "@clitools/base": "^1.4.0",
-    "lodash": "^4.17.10",
+    "@clitools/base": "^2.3.0",
+    "@clitools/keystore": "^2.0.0",
     "shelljs": "^0.8.2"
   }
 }
